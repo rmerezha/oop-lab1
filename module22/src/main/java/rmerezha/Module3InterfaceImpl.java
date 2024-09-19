@@ -7,15 +7,15 @@ import javafx.stage.Stage;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Module2InterfaceImpl implements Module2Interface {
-
+public class Module3InterfaceImpl implements Module3Interface {
     @Override
     public void run(AtomicInteger code, Stage stage) {
-        Button nextButton = new Button("Далі >");
+        Button prevButton = new Button("< Назад");
+        Button yesButton = new Button("Так");
         Button cancelButton = new Button("Відміна");
 
-        nextButton.setOnAction(e -> {
-            code.set(1);
+        prevButton.setOnAction(e -> {
+            code.set(-1);
             stage.close();
         });
 
@@ -24,11 +24,10 @@ public class Module2InterfaceImpl implements Module2Interface {
             stage.close();
         });
 
-        HBox hbox = new HBox(10, nextButton, cancelButton);
+        HBox hbox = new HBox(10, prevButton, yesButton, cancelButton);
 
         Scene scene = new Scene(hbox, 500, 250);
         stage.setScene(scene);
-        stage.setTitle("module2_1");
+        stage.setTitle("module2_2");
     }
-
 }
